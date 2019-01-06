@@ -43,5 +43,3 @@ switch ( comando ) {
         consola('Comando no reconocido');
         break;
 }
-
-
