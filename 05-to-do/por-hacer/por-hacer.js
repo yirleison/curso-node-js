@@ -1,4 +1,3 @@
-
 const fs = require('fs');
 let consola = console.log;
 
@@ -39,15 +38,51 @@ getListado = () => {
     return require('../db/data.json');
 }
 
-actualizar = function(descripcion, completado = true) {
+actualizar = function (descripcion, completado = true) {
     cargarDB();
     let index = listadoPorHacer.findIndex(tarea => tarea.descripcion === descripcion);
     if (index >= 0) {
         listadoPorHacer[index].completado = completado;
         guardarDB();
         return true;
+    } else {
+        return false;
     }
-    else {
+}
+
+/*
+    var heroes = [
+        {name: “Batman”, franchise: “DC”},
+        {name: “Ironman”, franchise: “Marvel”},
+        {name: “Thor”, franchise: “Marvel”},
+        {name: “Superman”, franchise: “DC”}
+    ];
+
+    var marvelHeroes =  heroes.filter(function(hero) {
+        return hero.franchise == "Marvel";
+    });
+
+*/
+
+const borrar = (descripcion) => {
+    cargarDB();
+    let index = listadoPorHacer.findIndex(tarea => tarea.descripcion === descripcion);
+
+    let tamanoListaActual = listadoPorHacer.length;
+
+    if (index => 0) {
+
+        listadoPorHacer = listadoPorHacer.filter(tarea => tarea.descripcion !== descripcion);
+
+        //consola(`Listado actual ===> ${tamanoListaActual} === Tamaño listado despues de borrado ${listadoPorHacer.length} `.red);
+
+        if (listadoPorHacer.length === tamanoListaActual) {
+            return false;
+        } else {
+            guardarDB();
+            return true;
+        }
+    } else {
         return false;
     }
 }
@@ -57,5 +92,6 @@ actualizar = function(descripcion, completado = true) {
 module.exports = {
     crear,
     getListado,
-    actualizar
+    actualizar,
+    borrar
 }

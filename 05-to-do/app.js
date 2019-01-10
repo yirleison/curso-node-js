@@ -16,13 +16,17 @@ switch (comando) {
         listado.forEach(element => {
             consola(colors.green("================Por hacer================"));
             consola(element.descripcion);
-            consola('Estado : ',element.completado);
+            consola('Estado : ', element.completado);
             consola("=========================================".green);
         });
         break;
     case 'actualizar':
-        let actualizado = porHacer.actualizar(argv.descripcion,argv.completado);
+        let actualizado = porHacer.actualizar(argv.descripcion, argv.completado);
         consola(actualizado);
+        break;
+    case 'borrar':
+        let borrado = porHacer.borrar(argv.descripcion);
+        consola(borrado);
         break;
     default:
         consola('Comando no reconocido');
