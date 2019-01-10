@@ -18,6 +18,13 @@ const argv = require('yargs')
         desc: 'Marca como completado o pendiente la tarea'
     }
 })
+.command('listar', 'Lista todas las tareas por hacer o que esten completadas', {
+    listar: {
+        alias: 'l',
+        demand: true,
+        desc:'Lista todas las tareas pendientes o completadas'
+    }
+})
 .help()
 .argv;
 
