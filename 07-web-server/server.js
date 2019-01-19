@@ -4,7 +4,7 @@ require ('./hbs/helpers');
 const app = express();
 let consola = console.log;
 
-const port = process.env.POT || 3000;
+const port = process.env.PORT || 3000;
 
 //midleware => sirve para ejecutar acciones antes de que se ejecute una petición solicitada desde la web u otra parte
 app.use ( express.static(__dirname + '/public') )

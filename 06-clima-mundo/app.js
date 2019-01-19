@@ -23,4 +23,4 @@ let getInfo = async (direccion) => {
 
 getInfo(argv.direccion)
     .then(temp => consola(temp))
-    .catch(e => consola('ERROR !!', e));
+    .catch(e => consola('ERROR !!', e)); 
